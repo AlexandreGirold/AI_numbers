@@ -2,21 +2,27 @@
 
 import glob
 import cv2
+import os
 
-def load_image(path_image):
-    """loads an image from the specified path.
 
+def load_image(image_path):
+    """Loads an image from a path.
     Args:
-        path_nbr (string): string to image
-
+        image_path (string): path of the image to load.
     Returns:
-        numPy Array of the image
+        np.array: the image.
     """
-    return cv2.imread(path_image)
-    
+    return cv2.imread(image_path)
 
-def load_multiple_image(path_image):
-    filenames = glob.glob(path_image)
-    images = [cv2.imread(img) for img in filenames]
-    for img in images:
-        load_image(img)
+def load_multiple_images(dirpath):
+    """load dataset (png from a folder).
+        *ps glob.glob gives a list of path.
+    Args:
+        dirpath (string): path of a directory which contains json and png.
+    Returns:
+        list[dict]: list of dictionnary containing image and json.
+    """
+
+    for filepath in glob.glob(dirpath + os.sep + "*.png"):
+        yield load_image(filepath)
+    
