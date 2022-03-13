@@ -4,6 +4,7 @@ import glob
 import cv2
 import os
 
+path_folder = r"C:\Users\sacha\Desktop\AI_numbers\main_program\images"
 
 def load_image(image_path):
     """Loads an image from a path.
@@ -26,3 +27,9 @@ def load_multiple_images(dirpath):
     for filepath in glob.glob(dirpath + os.sep + "*.png"):
         yield load_image(filepath)
     
+def get_answer(dirpath):
+    answer = []
+    for filepath in glob.glob(dirpath + os.sep + "*.png"):
+        numb = os.path.basename(filepath).split("_")[0]
+        answer.append(numb)
+    return answer
