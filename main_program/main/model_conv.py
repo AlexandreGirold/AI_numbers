@@ -26,7 +26,7 @@ print(X_train.shape)
 model = tf.keras.models.Sequential()
 
 model.add(tf.keras.layers.Conv2D(16, kernel_size=(3, 3), strides=(2, 2), input_shape=(28, 28, 1)))#28-2
-model.add(tf.keras.layers.Conv2D(32, kernel_size=(5, 5), strides=(2, 2), padding="same"))
+model.add(tf.keras.layers.Conv2D(32, kernel_size=(5, 5), strides=(3, 3), padding="same"))
 model.add(tf.keras.layers.Flatten(input_shape=(28,28,1)))
 model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(128, activation="relu"))
