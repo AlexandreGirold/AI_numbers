@@ -7,7 +7,7 @@ from tensorflow import keras
 import numpy as np
 from tensorflow.keras.models import load_model
 
-path_folder = r"C:\Users\sacha\Desktop\AI_numbers\main_program\images"
+path_folder = "your path to the images"
 which_model = input("1 for normal model, 2 for convolution model : ")
 which_model = int(which_model)
 
@@ -22,6 +22,8 @@ correct = 0
 list = load.get_answer(path_folder)
 for img in glob.glob(path_folder + os.sep + "*.png"):
     image = load.load_image(img)
+    image = cv2.resize(image, (28, 28))
+    #print(image.shape)
     image = np.dot(np.array([image]), [0.2989, 0.5870, 0.1140])
     image = np.expand_dims(image, axis=-1)
     #print(image.shape)

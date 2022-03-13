@@ -8,7 +8,7 @@ from tensorflow import keras
 import numpy as np
 from tensorflow.keras.models import load_model
 
-path_folder = r"C:\Users\sacha\Desktop\AI_numbers\main_program\images"
+path_folder = r"path to your folder containing pictures"
 
 mnist = tf.keras.datasets.mnist
 (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
@@ -26,13 +26,12 @@ print(X_train.shape)
 
 model = tf.keras.models.Sequential()
 
-model.add(tf.keras.layers.Conv2D(16, kernel_size=(5, 5), strides=(2, 2), input_shape=(28, 28, 1)))#28-2
-model.add(tf.keras.layers.Conv2D(32, kernel_size=(5, 5), strides=(1, 1), padding="same"))
+model.add(tf.keras.layers.Conv2D(16, kernel_size=(3, 3), strides=(2, 2), input_shape=(28, 28, 1)))#28-2
+model.add(tf.keras.layers.Conv2D(32, kernel_size=(5, 5), strides=(2, 2), padding="same"))
 model.add(tf.keras.layers.Flatten(input_shape=(28,28,1)))
-model.add(tf.keras.layers.Dense(128, activation="relu"))
 model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Dense(128, activation="relu"))
-model.add(tf.keras.layers.Dense(units=10, activation="softmax"))  # output layer
+model.add(tf.keras.layers.Dense(10, activation="softmax"))  # output layer
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 

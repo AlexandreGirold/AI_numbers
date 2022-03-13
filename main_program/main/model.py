@@ -8,7 +8,6 @@ from tensorflow import keras
 import numpy as np
 from tensorflow.keras.models import load_model
 
-path_folder = r"C:\Users\sacha\Desktop\AI_numbers\main_program\images"
 
 mnist = tf.keras.datasets.mnist
 (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
@@ -27,7 +26,7 @@ model.add(tf.keras.layers.Flatten(input_shape=(28,28)))
 model.add(tf.keras.layers.Dense(128, activation="relu"))
 model.add(tf.keras.layers.Dropout(0.3))
 model.add(tf.keras.layers.Dense(128, activation="relu"))
-model.add(tf.keras.layers.Dense(units=10, activation="softmax"))  # output layer
+model.add(tf.keras.layers.Dense(10, activation="softmax"))  # output layer
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 
