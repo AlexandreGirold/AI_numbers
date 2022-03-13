@@ -7,7 +7,7 @@ from tensorflow import keras
 import numpy as np
 from tensorflow.keras.models import load_model
 
-path_folder = "your path to the images"
+path_folder = r"path to your folder"
 which_model = input("1 for normal model, 2 for convolution model : ")
 which_model = int(which_model)
 
