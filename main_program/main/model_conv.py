@@ -8,7 +8,6 @@ from tensorflow import keras
 import numpy as np
 from tensorflow.keras.models import load_model
 
-path_folder = r"path to your folder containing pictures"
 
 mnist = tf.keras.datasets.mnist
 (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
